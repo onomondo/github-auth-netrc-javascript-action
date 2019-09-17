@@ -1,0 +1,25 @@
+{
+  "name": "github-auth-netrc-javascript-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@zeit/ncc": "^0.20.5"
+  },
+  "scripts": {
+    "build": "ncc build index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onomondo/github-auth-npm-javascript-action.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onomondo/github-auth-npm-javascript-action/issues"
+  },
+  "homepage": "https://github.com/onomondo/github-auth-npm-javascript-action#readme"
+}
