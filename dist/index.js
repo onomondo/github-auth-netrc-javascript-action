@@ -512,6 +512,7 @@ const core = __webpack_require__(470)
 const github = __webpack_require__(469)
 
 try {
+  console.log('process.env', process.env)
   const authToken = core.getInput('github-auth-token')
   const netRcPath = path.join(process.env.HOME, '.netrc')
   const netRcContents = `machine github.com login ${authToken} password x-oauth-basic`

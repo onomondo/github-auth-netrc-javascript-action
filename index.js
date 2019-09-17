@@ -4,6 +4,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 
 try {
+  console.log('process.env', process.env)
   const authToken = core.getInput('github-auth-token')
   const netRcPath = path.join(process.env.HOME, '.netrc')
   const netRcContents = `machine github.com login ${authToken} password x-oauth-basic`
