@@ -515,7 +515,7 @@ try {
   console.log('process.env', process.env)
   const authToken = core.getInput('github-auth-token')
   const netRcPath = path.join(process.env.HOME, '.netrc')
-  const netRcContents = `machine github.com login ${authToken} password x-oauth-basic`
+  const netRcContents = `machine github.com login ${process.env.GITHUB_TOKEN} password x-oauth-basic`
   fs.writeFileSync(netRcPath, netRcContents)
   const x = fs.readFileSync(netRcPath)
   console.log('x', x.toString())
