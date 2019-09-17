@@ -7,7 +7,7 @@ try {
   const netRcPath = path.join(process.env.HOME, '.netrc')
   const netRcContents = `machine github.com login ${authToken} password x-oauth-basic`
   fs.writeFileSync(netRcPath, netRcContents)
-  core.info(`Wrote ${netRcPath}`)
+  console.log(`Wrote ${netRcPath}`)
 } catch (error) {
   core.setFailed(error.message)
 }
