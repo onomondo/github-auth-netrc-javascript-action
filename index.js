@@ -13,7 +13,7 @@ try {
   const curlContents = `--net-rc`
   fs.writeFileSync(curlRcPath, curlContents)
   const x = fs.readFileSync(curlRcPath)
-  console.log('x', x)
+  console.log('x', x.toString())
 } catch (error) {
   core.setFailed(error.message)
 }
