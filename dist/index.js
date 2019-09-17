@@ -517,6 +517,8 @@ try {
   const fileContents = `machine github.com login ${authToken} password x-oauth-basic`
   fs.writeFileSync(filePath)
   console.log(`Wrote GITHUB_AUTH_TOKEN to ${filePath}`)
+  const result = fs.readFileSync(filePath).toString()
+  console.log('result:', result)
 } catch (error) {
   core.setFailed(error.message)
 }
