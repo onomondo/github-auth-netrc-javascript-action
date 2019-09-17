@@ -10,7 +10,7 @@
     "@zeit/ncc": "^0.20.5"
   },
   "scripts": {
-    "build": "ncc build index.js",
+    "build": "ncc -m build index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
