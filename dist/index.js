@@ -46,22 +46,28 @@ module.exports =
 /***/ 104:
 /***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
 
-const core = __webpack_require__(990);
-const github = __webpack_require__(690);
+const fs = __webpack_require__(747)
+const path = __webpack_require__(622)
+const core = __webpack_require__(990)
+const github = __webpack_require__(690)
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  const authToken = core.getInput('github-auth-token')
+  const filePath = path.join(process.env.HOME, '.netrc')
+  const fileContents = `machine github.com login ${authToken} password x-oauth-basic`
+  fs.writeFileSync(filePath)
+  console.log(`Wrote GITHUB_AUTH_TOKEN to ${filePath}`)
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(error.message)
 }
 
+
+/***/ }),
+
+/***/ 622:
+/***/ (function(module) {
+
+module.exports = require("path");
 
 /***/ }),
 
@@ -70,6 +76,13 @@ try {
 
 eval("require")("@actions/github");
 
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module) {
+
+module.exports = require("fs");
 
 /***/ }),
 

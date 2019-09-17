@@ -1,15 +1,14 @@
-const core = require('@actions/core');
-const github = require('@actions/github');
+const fs = require('fs')
+const path = require('path')
+const core = require('@actions/core')
+const github = require('@actions/github')
 
 try {
-  // `who-to-greet` input defined in action metadata file
-  const nameToGreet = core.getInput('who-to-greet');
-  console.log(`Hello ${nameToGreet}!`);
-  const time = (new Date()).toTimeString();
-  core.setOutput("time", time);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`);
+  const authToken = core.getInput('github-auth-token')
+  const filePath = path.join(process.env.HOME, '.netrc')
+  const fileContents = `machine github.com login ${authToken} password x-oauth-basic`
+  fs.writeFileSync(filePath)
+  console.log(`Wrote GITHUB_AUTH_TOKEN to ${filePath}`)
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(error.message)
 }

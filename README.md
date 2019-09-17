@@ -10,4 +10,8 @@ Expects a `secret` available in the repo called `GITHUB_AUTH_TOKEN`
 
 ## Example usage
 
+```yml
 uses: onomondo/github-auth-netrc-javascript-action
+with:
+  github-auth-token: ${{ secrets.GITHUB_AUTH_TOKEN }}
+```
