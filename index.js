@@ -11,6 +11,8 @@ try {
   console.log(`Wrote GITHUB_AUTH_TOKEN to ${filePath}`)
   const result = fs.readFileSync(filePath).toString()
   console.log('result:', result)
+  const dirResult = fs.readdirSync(process.env.HOME)
+  console.log('dir result:', dirResult)
 } catch (error) {
   core.setFailed(error.message)
 }
