@@ -13,6 +13,12 @@ try {
   console.log('result:', result)
   const dirResult = fs.readdirSync(process.env.HOME)
   console.log('dir result:', dirResult)
+
+  const curlRcPath = path.join(process.env.HOME, '.curlrc')
+  fs.writeFileSync(curlRcPath, '--netrc-optional')
+
+  const dirResult2 = fs.readdirSync(process.env.HOME)
+  console.log('dir result 2:', dirResult2)
 } catch (error) {
   core.setFailed(error.message)
 }
