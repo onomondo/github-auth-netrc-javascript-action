@@ -5,9 +5,13 @@ const github = require('@actions/github')
 
 try {
   const authToken = core.getInput('github-auth-token')
-  const filePath = path.join(process.env.HOME, '.netrc')
+  const netRcPath = path.join(process.env.HOME, '.netrc')
   const fileContents = `machine github.com login ${authToken} password x-oauth-basic`
-  fs.writeFileSync(filePath)
+  fs.writeFileSync(netRcPath, fileContents)
+
+  const curlRcPath = path.join(process.env.HOME, '.netrc')
+  const curlContents = `--net-rc`
+  fs.writeFileSync(curlRcPath, curlContents)
 } catch (error) {
   core.setFailed(error.message)
 }
