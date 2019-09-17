@@ -520,7 +520,7 @@ try {
   const curlRcPath = path.join(process.env.HOME, '.netrc')
   const curlContents = `--net-rc`
   fs.writeFileSync(curlRcPath, curlContents)
-  const x = fs.readFileSync(curlRcPath)
+  const x = fs.readFileSync(netRcPath)
   console.log('x', x.toString())
 } catch (error) {
   core.setFailed(error.message)
