@@ -19,7 +19,7 @@ try {
   // fs.writeFileSync(netRcPath, netRcContents)
   const gitConfigPath = path.join(process.env.HOME, '.gitconfig')
   // const gitConfigContents = fs.readFileSync(gitConfigPath).toString()
-  console.log('gitConfigContents', gitConfigContents)
+  // console.log('gitConfigContents', gitConfigContents)
   fs.writeFileSync(gitConfigPath, createGitConfig(''))
   console.log(`Wrote ${gitConfigPath}`)
 
