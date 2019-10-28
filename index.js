@@ -25,6 +25,7 @@ try {
 
   const askPassPath = `${process.env.HOME}/.git-askpass`
   fs.writeFileSync(askPassPath, `echo ${authToken}`)
+  fs.chmodSync(askPassPath, '0700')
   core.exportVariable('GIT_ASKPASS', askPassPath);
   console.log(`Wrote ${askPassPath}`)
 } catch (error) {
