@@ -11,7 +11,7 @@ Expects a `secret` available in the repo called `GITHUB_AUTH_TOKEN`
 ## Example usage
 
 ```yml
-uses: onomondo/github-auth-javascript-action
+uses: onomondo/github-auth-javascript-action@v1.0.0
 with:
   github-auth-token: ${{ secrets.GITHUB_AUTH_TOKEN }}
 ```
