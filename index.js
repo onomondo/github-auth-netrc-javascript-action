@@ -18,9 +18,9 @@ try {
   // const netRcContents = `machine github.com login ${authToken} password x-oauth-basic`
   // fs.writeFileSync(netRcPath, netRcContents)
   const gitConfigPath = path.join(process.env.HOME, '.gitconfig')
-  const gitConfigContents = fs.readFileSync(gitConfigPath).toString()
+  // const gitConfigContents = fs.readFileSync(gitConfigPath).toString()
   console.log('gitConfigContents', gitConfigContents)
-  fs.writeFileSync(gitConfigPath, createGitConfig(gitConfigContents))
+  fs.writeFileSync(gitConfigPath, createGitConfig(''))
   console.log(`Wrote ${gitConfigPath}`)
 
   const askPassPath = `${process.env.HOME}/.git-askpass`
