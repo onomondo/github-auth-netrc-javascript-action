@@ -7,7 +7,7 @@
     "@actions/core": "^1.2.6"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.20.5"
+    "@vercel/ncc": "^0.25.1"
   },
   "scripts": {
     "build": "ncc -m build index.js",
